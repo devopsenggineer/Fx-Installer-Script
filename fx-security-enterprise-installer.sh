@@ -1,4 +1,4 @@
-#!/bin/bash -x
+﻿#!/bin/bash -x
 # FX security enterprise installer script https://fxlabs.io/
 # 20181224
 
@@ -103,5 +103,6 @@ docker exec $(docker ps -q -f name=fx-rabbitmq) rabbitmqctl set_permissions -p f
 docker stack deploy -c fx-security-enterprise-control-plane.yaml prod
 sleep 60
 docker stack deploy -c fx-security-enterprise-dependents.yaml prod
+sleep 60
 docker stack deploy -c fx-security-enterprise-haproxy.yaml prod
 
